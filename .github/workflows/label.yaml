@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v4
+        name: Add labels
         with:
           script: |
             function addLabels(labels) {
@@ -19,7 +20,7 @@ jobs:
             }
 
             async function run() {
-              const { title } = github.context.payload.pull_request;
+              const { title } = context.payload.pull_request;
               if (title.startsWith("Update TiDB Dashboard to")) {
                 await doAddLabels(["component/visualization", "require-LGT1"]);
                 return;
@@ -29,7 +30,7 @@ jobs:
             }
 
             run().catch(e => {
-              console.error(e.message);
+              console.error("Errors: ", e.stack);
             })
       # - uses: actions/checkout@v1
       # - name: Setup Nodejs
