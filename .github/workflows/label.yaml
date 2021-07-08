@@ -1,0 +1,11 @@
+name: Add Labels
+on:
+  - pull_request_target
+
+jobs:
+  labeler:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: .github/labeler
+        with:
+          githubToken: ${{ secrets.GITHUB_TOKEN }}

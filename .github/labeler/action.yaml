@@ -1,0 +1,9 @@
+name: Add Labels
+description: Add labels to the PR
+inputs:
+  githubToken:
+    description: GitHub Auth Token
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
