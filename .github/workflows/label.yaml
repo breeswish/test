@@ -10,7 +10,7 @@ jobs:
         name: Add labels
         with:
           script: |
-            function addLabels(labels) {
+            function doAddLabels(labels) {
               return github.issues.addLabels({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
