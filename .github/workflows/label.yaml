@@ -29,7 +29,7 @@ jobs:
             }
 
             run().catch(e => {
-              console.error(error.message);
+              console.error(e.message);
             })
       # - uses: actions/checkout@v1
       # - name: Setup Nodejs
